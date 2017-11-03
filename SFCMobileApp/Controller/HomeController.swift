@@ -9,27 +9,13 @@
 import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    
-    var scrollView: UIScrollView!
-    var containerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         //header
-        navigationItem.title = "Students First Center"
         navigationController?.navigationBar.isTranslucent = false
-        
-        //Will move the navigation bar items
-        /*let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
-        titleLabel.text = "SFC"
-        titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.systemFont(ofSize: 25)
-        navigationItem.titleView = titleLabel*/
-        
-        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 400, height: view.frame.height))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "sfc_logo")
@@ -41,7 +27,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         //background color
         collectionView?.backgroundColor = UIColor.white
         
-    collectionView?.register(calendarCell.self,forCellWithReuseIdentifier:"cellID")
+       collectionView?.register(calendarCell.self,forCellWithReuseIdentifier:"cellID")
       
          
          setupNavBarButtons()
@@ -81,17 +67,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return 1
     }
 
-
+    //returns the cel
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
-        
+
         return cell
     }
     
         //responsible for the sizing of the cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 225)
     }
     
     
